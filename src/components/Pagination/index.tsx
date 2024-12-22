@@ -40,6 +40,19 @@ const Pagination: React.FC<PaginationProps> = ({
     };
   }, [isMobile, currentPage, totalPages, onPageChange]);
 
+  const getVisiblePages = () => {
+    const maxVisiblePages = 7;
+    let start = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+    let end = start + maxVisiblePages - 1;
+
+    if (end > totalPages) {
+      end = totalPages;
+      start = Math.max(1, end - maxVisiblePages + 1);
+    }
+
+    return Array.from({ length: end - start + 1 }, (_, i) => start + i);
+  };
+
   if (isMobile) {
     return (
       <div>
@@ -49,6 +62,8 @@ const Pagination: React.FC<PaginationProps> = ({
     );
   }
 
+  const visiblePages = getVisiblePages();
+
   return (
     <div className="desktop-pagination">
       <button
@@ -57,13 +72,13 @@ const Pagination: React.FC<PaginationProps> = ({
       >
         Prev
       </button>
-      {[...Array(totalPages)].map((_, index) => (
+      {visiblePages.map((page) => (
         <button
-          key={index}
-          onClick={() => onPageChange(index + 1)}
-          className={currentPage === index + 1 ? "active" : ""}
+          key={page}
+          onClick={() => onPageChange(page)}
+          className={currentPage === page ? "active" : ""}
         >
-          {index + 1}
+          {page}
         </button>
       ))}
       <button

@@ -1,5 +1,6 @@
 .table-container {
   max-width: 100%;
+  min-height: 293px;
   overflow-x: auto;
   margin: 20px 0;
   border-radius: 8px;
