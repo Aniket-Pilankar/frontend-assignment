@@ -25,21 +25,27 @@ const Table: React.FC<TableProps> = ({ projects }) => {
           </tr>
         </thead>
         <tbody>
-          {projects.map((project) => (
-            <tr key={project.id}>
-              <td>
-                <span>{isMobile && "S.No."}</span>
-                <span>{project.id + 1}</span>
-              </td>
-              <td>
-                {isMobile && "Percentage Funded"}
-                {project.percentageFunded} %
-              </td>
-              <td>
-                {isMobile && "Amount Pledged"}$ {project.amountPledged}
-              </td>
+          {projects.length === 0 ? (
+            <tr style={{ display: "block" }}>
+              <h2>No Data to show</h2>
             </tr>
-          ))}
+          ) : (
+            projects.map((project) => (
+              <tr key={project?.id}>
+                <td>
+                  <span>{isMobile && "S.No."}</span>
+                  <span>{project?.id + 1}</span>
+                </td>
+                <td>
+                  {isMobile && "Percentage Funded"}
+                  {project?.percentageFunded} %
+                </td>
+                <td>
+                  {isMobile && "Amount Pledged"}$ {project?.amountPledged}
+                </td>
+              </tr>
+            ))
+          )}
         </tbody>
       </table>
     </div>

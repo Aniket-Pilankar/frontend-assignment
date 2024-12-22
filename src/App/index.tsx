@@ -29,7 +29,7 @@ const App: React.FC = () => {
         <Loader />
       </div>
     );
-  if (error) return <p>Error: {error}</p>;
+  if (error) return <h1>Error: {error}</h1>;
 
   return (
     <div className="app">
