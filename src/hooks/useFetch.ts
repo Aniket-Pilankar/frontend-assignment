@@ -1,19 +1,19 @@
 import { useState, useEffect } from "react";
 
-interface Project {
+export interface IProject {
   "s.no": number;
   "amt.pledged": number;
   "percentage.funded": number;
 }
 
-interface ProcessedProject {
+export interface IProcessedProject {
   id: number;
   percentageFunded: number;
   amountPledged: number;
 }
 
 export const useFetch = (url: string) => {
-  const [data, setData] = useState<ProcessedProject[]>([]);
+  const [data, setData] = useState<IProcessedProject[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -22,9 +22,9 @@ export const useFetch = (url: string) => {
       try {
         const response = await fetch(url);
         if (!response.ok) throw new Error("Failed to fetch data");
-        const result: Project[] = await response.json();
+        const result: IProject[] = await response.json();
 
-        const processedData: ProcessedProject[] = result.map((item) => ({
+        const processedData: IProcessedProject[] = result.map((item) => ({
           id: item["s.no"],
           percentageFunded: item["percentage.funded"],
           amountPledged: item["amt.pledged"],
