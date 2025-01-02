@@ -1,5 +1,54 @@
 # Frontend Assignment
 
+## **Features**  
+
+- **Page Sync Between Views**:  
+  The table maintains the same page state when switching from mobile to desktop views. For example, if you're on page 5 in mobile view, the same page will appear when you switch to desktop view.
+
+- **Scroll Pagination for Mobile**:  
+  For desktop, button-based pagination is provided, while for mobile, scroll pagination is implemented for seamless navigation.
+
+- **Responsive Design**:  
+  The table adjusts seamlessly to different screen sizes, with a card-style layout for mobile devices.
+
+- **Pagination**:  
+  Supports paginated data with intuitive navigation for a maximum of 5 records per page.
+
+---
+
+## **Tech Stack**
+
+- **Frontend**:
+  - React.js  
+  - TypeScript  
+
+- **Styling**:
+  - Raw CSS  
+
+- **Libraries & Tools**:
+  - Unit Testing(Jest + RTL)
+    
+---
+
+## **Screenshots**
+
+### **Desktop View**
+![Desktop View](https://github.com/Aniket-Pilankar/frontend-assignment/blob/master/src/assets/Desktop%20View%201.png)
+
+### **Mobile View**
+![Mobile View](https://github.com/Aniket-Pilankar/frontend-assignment/blob/master/src/assets/Mobile%20View.png)
+
+## **Installation and Setup**
+
+1. **Start the Repository**:  
+   ```bash
+   git clone https://github.com/your-username/your-repository.git
+   cd your-repository
+
+   npm install
+   npm start
+   ```
+
 ## Assignment
 
 You are required to fetch the details of the highly-rated kickstarter projects by implementing an AJAX call to their APIs.
